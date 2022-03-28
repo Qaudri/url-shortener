@@ -1,5 +1,9 @@
 <template>
-  <Tutorial />
+  <div class="h-screen container mx-auto">
+    <div>
+      <SectionsCommonHeader />
+    </div>
+  </div>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <a href="/">
-      <img :src="require('@/assets/images/logo.svg')" alt="">
+      <img :src="require('@/Assets/images/logo.svg')" alt="">
     </a>
   </div>
 </template>
