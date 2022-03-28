@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="font-medium text-lg text-black py-2 hover:border-b-2 hover:border-primary-100 hover:text-primary-100">
+    <button class="font-medium text-lg text-black py-0.5 border-b-2 border-transparent hover:border-primary-100 hover:text-primary-100">
       {{button_title}}
     </button>
   </div>
