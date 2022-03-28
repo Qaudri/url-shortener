@@ -13,7 +13,10 @@
           Forgot password?
         </p>
       </div>
-      
+
+      <button class="text-xl text-white font-medium py-3 flex justify-center bg-primary-100 rounded-xl mx-auto px-10">
+        Login 
+      </button>
     </form>
   </div>
 </template>
