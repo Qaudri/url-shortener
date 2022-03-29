@@ -9,6 +9,7 @@
       class="block w-full py-2 px-4 rounded-lg bg-primary-100 bg-opacity-5 focus:border-primary-100">
 
       <UiAuthenticationsInputErrorUsername v-if="errors.username" />
+      <UiAuthenticationsEmptyUsername v-if="empty.username" />
 
       <div class="py-2"></div>
 
@@ -18,6 +19,7 @@
       class="block w-full py-2 px-4 rounded-lg bg-primary-100 bg-opacity-5 focus:border-primary-100">
 
       <UiAuthenticationsInputErrorPassword v-if="errors.password" />
+      <UiAuthenticationsEmptyPassword v-if="empty.password" />
 
       <div class="py-1"></div>
 
@@ -31,7 +33,7 @@
         </p>
       </div>
 
-      <!-- <UiAuthenticationsCountErrorsPassword /> -->
+      <UiAuthenticationsError />
 
       <button type="submit" class="bg-opacity-5 mt-10 text-xl text-black font-medium py-3 flex justify-center bg-primary-100 rounded-xl w-full">
         Login 
@@ -74,11 +76,17 @@ export default {
     validateInput(){
       if (this.form.username == '') {
         this.empty.username = true
+
+        if (this.form.password == '') {
+          this.empty.password = true
+        } else {
+          this.empty.password = false
+        }
+      } else {
+        this.empty.username = false
       }
 
-      if (this.form.password == '') {
-        this.empty.password = true
-      }
+
     },
 
     submitLogin(){
