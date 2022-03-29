@@ -14,7 +14,7 @@
 
       <label for="password" class="block text-lg text-primary-100 font-medium">Password</label>
       <div class="py-1"></div>
-      <input type="text" v-model="form.password" placeholder="Enter your password" 
+      <input type="password" v-model="form.password" placeholder="Enter your password" 
       class="block w-full py-2 px-4 rounded-lg bg-primary-100 bg-opacity-5 focus:border-primary-100">
 
       <UiAuthenticationsInputErrorPassword v-if="errors.password" />
@@ -37,7 +37,7 @@
         Login 
       </button>
 
-      <div class="text-gray-400 text-base mt-4 flex justify-center mx-auto">
+      <div :class="errors.username && errors.password ? '' : 'bg-opacity-100 text-white'" class="text-gray-400 text-base mt-4 flex justify-center mx-auto">
         Don't have an account? <span class=""><button class="font-medium hover:text-primary-100 duration-500 ease-in-out ml-2">Sign Up</button></span>
       </div>
     </form>
@@ -49,6 +49,11 @@ export default {
   data(){
     return{
       errors: {
+        username: false,
+        password: false
+      },
+
+      empty: {
         username: false,
         password: false
       },
@@ -66,10 +71,20 @@ export default {
   },
 
   methods: {
-    submitLogin(){
-      if (this.form.username === this.user_from_db.usernameInput) {
+    validateInput(){
+      if (this.form.username == '') {
+        this.empty.username = true
+      }
 
-        if (this.form.password === this.user_from_db.passwordInput) {
+      if (this.form.password == '') {
+        this.empty.password = true
+      }
+    },
+
+    submitLogin(){
+      if (this.form.username == this.user_from_db.usernameInput) {
+
+        if (this.form.password == this.user_from_db.passwordInput) {
           this.$router.push("/dashboard")
         } else {
           this.errors.password = true
