@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mx-12 md:w-1/2 lg:w-1/3  border-primary-100 border-2 py-8 px-6 rounded-2xl">
+  <div class="w-full mx-12 md:w-1/2 lg:w-2/5  border-primary-100 border-2 py-8 px-6 rounded-2xl">
     <form action="" class="block">
       <label for="username" class="block text-lg text-primary-100 font-medium">Username</label>
       <div class="py-1"></div>
@@ -23,12 +23,14 @@
         </p>
       </div>
 
+      <!-- <UiAuthenticationsCountErrorsPassword /> -->
+
       <button type="submit" class="bg-opacity-5 mt-10 text-xl text-black font-medium py-3 flex justify-center bg-primary-100 rounded-xl w-full">
         Login 
       </button>
 
       <div class="text-gray-400 text-base mt-4 flex justify-center mx-auto">
-        Don't have an account? <span class=""><button class="font-medium hover:text-primary-100 duration-500 ease-in-out">Sign Up</button></span>
+        Don't have an account? <span class=""><button class="font-medium hover:text-primary-100 duration-500 ease-in-out ml-2">Sign Up</button></span>
       </div>
     </form>
   </div>
