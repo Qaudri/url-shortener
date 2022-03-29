@@ -1,15 +1,23 @@
 <template>
   <div class="w-full mx-12 md:w-1/2 lg:w-2/5  border-primary-100 border-2 py-8 px-6 rounded-2xl">
-    <form action="" class="block">
+
+    <form action="" class="block" @submit.prevent="submitLogin">
+
       <label for="username" class="block text-lg text-primary-100 font-medium">Username</label>
       <div class="py-1"></div>
-      <input type="text" placeholder="Enter your username" class="block w-full py-2 px-5 rounded-lg bg-primary-100 bg-opacity-5 focus:border-primary-100">
+      <input type="text" v-model="form.username" placeholder="Enter your username" 
+      class="block w-full py-2 px-4 rounded-lg bg-primary-100 bg-opacity-5 focus:border-primary-100">
+
+      <UiAuthenticationsInputErrorUsername v-if="errors.username" />
 
       <div class="py-2"></div>
 
       <label for="password" class="block text-lg text-primary-100 font-medium">Password</label>
       <div class="py-1"></div>
-      <input type="text" placeholder="Enter your password" class="block w-full py-2 px-5 rounded-lg bg-primary-100 bg-opacity-5 focus:border-primary-100">
+      <input type="text" v-model="form.password" placeholder="Enter your password" 
+      class="block w-full py-2 px-4 rounded-lg bg-primary-100 bg-opacity-5 focus:border-primary-100">
+
+      <UiAuthenticationsInputErrorPassword v-if="errors.password" />
 
       <div class="py-1"></div>
 
@@ -45,11 +53,6 @@ export default {
         password: false
       },
 
-      counterrors: {
-        username: false,
-        password: false
-      },
-
       form: {
         username: '',
         password: '',
@@ -59,6 +62,22 @@ export default {
         usernameInput: "Qaudri",
         passwordInput: "Qaudri1234",
       },
+    }
+  },
+
+  methods: {
+    submitLogin(){
+      if (this.form.username === this.user_from_db.usernameInput) {
+
+        if (this.form.password === this.user_from_db.passwordInput) {
+          this.$router.push("/dashboard")
+        } else {
+          this.errors.password = true
+        }
+
+      } else {
+        this.errors.username = true
+      }
     }
   }
 }
