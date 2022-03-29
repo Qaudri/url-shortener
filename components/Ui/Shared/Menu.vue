@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center">
-    <UiButtonsSecondary button_title="Login" class="mx-6" />
-    <UiButtonsPrimary button_title="Sign Up" class="ml-6" />
+    <UiButtonsLogin button_title="Login" class="mx-6" @click="login" />
+    <UiButtonsSignup button_title="Sign Up" class="ml-6" @click="sign-up" />
   </div>
 </template>
 
