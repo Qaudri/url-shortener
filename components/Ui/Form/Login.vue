@@ -1,20 +1,29 @@
 <template>
-  <div class="w-1/3 h-60 bg-primary-100 bg-opacity-5 border-primary-100 border-2 py-10 px-6 rounded-3xl">
+  <div class="w-1/3  border-primary-100 border-2 py-8 px-6 rounded-2xl">
     <form action="" class="block">
-      <label for="username" class="block">Username</label>
-      <input type="text" placeholder="Enter your username" class="block">
+      <label for="username" class="block text-lg text-primary-100 font-medium">Username</label>
+      <div class="py-1"></div>
+      <input type="text" placeholder="Enter your username" class="block w-full py-2 px-5 rounded-lg bg-primary-100 bg-opacity-5 focus:border-primary-100">
 
-      <label for="password" class="block">Password</label>
-      <input type="text" placeholder="Enter your password" class="block">
+      <div class="py-2"></div>
+
+      <label for="password" class="block text-lg text-primary-100 font-medium">Password</label>
+      <div class="py-1"></div>
+      <input type="text" placeholder="Enter your password" class="block w-full py-2 px-5 rounded-lg bg-primary-100 bg-opacity-5 focus:border-primary-100">
+
+      <div class="py-1"></div>
 
       <div class="flex justify-between items-center">
-        <input type="checkbox" name="toggle" id="toggle" >
-        <p>
+        <div class="flex items-center">
+          <input type="checkbox" name="toggle" id="toggle" class="mr-3">
+          <label for="toggle" class="text-sm text-gray-400 select-none">Remember Me</label>
+        </div>
+        <p  class="text-sm text-gray-400 select-none">
           Forgot password?
         </p>
       </div>
 
-      <button class="text-xl text-white font-medium py-3 flex justify-center bg-primary-100 rounded-xl mx-auto px-10">
+      <button class="mt-8 text-xl text-white font-medium py-3 flex justify-center bg-primary-100 rounded-xl w-full">
         Login 
       </button>
     </form>
