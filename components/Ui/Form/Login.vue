@@ -38,7 +38,29 @@
 
 <script>
 export default {
+  data(){
+    return{
+      errors: {
+        username: false,
+        password: false
+      },
 
+      counterrors: {
+        username: false,
+        password: false
+      },
+
+      form: {
+        username: '',
+        password: '',
+      },
+
+      user_from_db: {
+        usernameInput: "Qaudri",
+        passwordInput: "Qaudri1234",
+      },
+    }
+  }
 }
 </script>
 
