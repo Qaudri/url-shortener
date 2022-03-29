@@ -1,13 +1,21 @@
 <template>
-  <div>
-    <SectionsCommonHeader class="absolute w-full" />
-    <div class="flex">
-      <div class="w-1/5 bg-primary-100 bg-opacity-5 h-screen border-r-2 border-purple-600 flex items-center">
+  <div class="relative">
+    <div class="flex py-4 absolute top-0 px-16 bg-white w-full justify-between">
+      <a href="/dashboard">
+        <img :src=" require('@/Assets/images/logo.svg') " alt="" class="w-28">
+      </a>
+
+      <div>
+
+      </div>
+    </div>
+    <div class="flex h-screen">
+      <div class="w-1/5 bg-primary-100 bg-opacity-5 h-full border-r-2 border-purple-600 border-opacity-50 flex items-center">
 
         <div class="w-full">
-          <div class="flex items-center py-2 border-b-2 border-purple-600 w-full my-2">
-          <div>
-
+          <div class="flex items-center py-2 border-b-2 border-purple-600 border-opacity-50 w-full my-2">
+          <div class="mx-8 p-3 rounded-full border-2 border-primary-100 border-opacity-50">
+            <img :src="require('@/Assets/icons/chart.svg') " class="w-8" alt="">
           </div>
           <div>
             <h1 class="font-bold text-5xl text-black my-1">
@@ -17,9 +25,9 @@
           </div>
           </div>
 
-          <div class="flex items-center py-2 border-b-2 border-purple-600 w-full my-2">
-            <div>
-
+          <div class="flex items-center py-2 border-b-2 border-purple-600 border-opacity-50 w-full my-2">
+            <div class="mx-8 p-3 rounded-full border-2 border-primary-100 border-opacity-50">
+              <img :src="require('@/Assets/icons/browser.svg')" class="w-8" alt="">
             </div>
             <div>
               <h1 class="font-bold text-5xl text-black my-1">
@@ -29,9 +37,9 @@
             </div>
           </div>
 
-          <div class="flex items-center py-2 border-b-2 border-purple-600 w-full my-2">
-            <div>
-
+          <div class="flex items-center py-2 border-b-2 border-purple-600 border-opacity-50 w-full my-2">
+            <div class="mx-8 p-3 rounded-full border-2 border-primary-100 border-opacity-50">
+              <img :src="require('@/Assets/icons/location.svg') " alt="" class="w-8">
             </div>
             <div>
               <h1 class="font-bold text-5xl text-black my-1">
