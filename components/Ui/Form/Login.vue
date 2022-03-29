@@ -33,7 +33,7 @@
         </p>
       </div>
 
-      <UiAuthenticationsError />
+      <UiAuthenticationsError v-if="non_existent" />
 
       <button type="submit" class="bg-opacity-5 mt-10 text-xl text-black font-medium py-3 flex justify-center bg-primary-100 rounded-xl w-full">
         Login 
@@ -50,6 +50,8 @@
 export default {
   data(){
     return{
+      non_existent: false,
+
       errors: {
         username: false,
         password: false
@@ -85,11 +87,18 @@ export default {
       } else {
         this.empty.username = false
       }
+    },
 
-
+    noAccount(){
+      if (this.form.username =! this.user_from_db.usernameInput) {
+        if (this.form.password =! this.user_from_db.usernameInput) {
+          this.non_existent = true
+        }
+      }
     },
 
     submitLogin(){
+      this.validateInput()
       if (this.form.username == this.user_from_db.usernameInput) {
 
         if (this.form.password == this.user_from_db.passwordInput) {
