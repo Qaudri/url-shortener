@@ -1,12 +1,33 @@
 <template>
   <div class="relative">
-    <div class="flex py-4 absolute top-0 px-16 bg-white w-full justify-between">
+    <div class="flex py-4 absolute top-0 px-16 bg-white w-full justify-between shadow-xl">
       <a href="/dashboard">
         <img :src=" require('@/Assets/images/logo.svg') " alt="" class="w-28">
       </a>
 
-      <div>
+      <div class="flex">
+        <div class="mx-4 flex items-center border-r-2 px-4">
+          <img :src=" require('@/Assets/icons/user.svg') " class="w-8 mx-3" alt="">
+          <form action="" class="">
+            <select name="account" id="account" class="font-medium text-black text-lg pr-6">
+              <option value="1" class="">Username</option>
+              <option value="2" class="">Upgrade </option>
+              <option value="3" class="">Resources</option>
+              <option value="4" class="">Settings</option>
+              <option value="5" class="">Log Out</option>
+            </select>
+          </form>
+        </div>
 
+        <form action="">
+          <select name="links" id="links" class="px-4 py-3 text-black text-lg font-medium bg-primary-100 bg-opacity-5 rounded-lg" >
+            <option value="1" class="bg-white">Check all your links</option>
+            <option value="2" class="bg-white">Custom links</option>
+            <option value="3" class="bg-white">Create a campaign</option>
+            <option value="4" class="bg-white">Create a new link</option>
+            <option value="5" class="bg-white">Help center</option>
+          </select>
+        </form>
       </div>
     </div>
     <div class="flex h-screen">
