@@ -23,7 +23,7 @@
         </p>
       </div>
 
-      <button class="mt-8 text-xl text-white font-medium py-3 flex justify-center bg-primary-100 rounded-xl w-full">
+      <button type="submit" class="bg-opacity-5 mt-10 text-xl text-black font-medium py-3 flex justify-center bg-primary-100 rounded-xl w-full">
         Login 
       </button>
     </form>
