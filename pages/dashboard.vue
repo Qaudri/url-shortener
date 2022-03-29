@@ -74,8 +74,13 @@
 
 
       </div>
-      <div class="w-3/5">
-
+      <div class="w-3/5 flex items-center justify-center mx-auto">
+        <div class="w-full">
+          <h1 class="font-bold text-5xl text-primary-100 text-center mx-auto my-6">Shorten your links</h1>
+          <input type="text" class="w-11/12 px-6 py-3 text-lg text-gray-400 rounded-xl border-2 border-primary-100 shadow-lg" placeholder="Input your link">
+          <button class="text-white uppercase font-medium bg-primary-100 px-12 rounded-lg flex justify-center py-3 mx-auto  mt-6">Shorten</button>
+          <p class=" text-sm text-gray-400 flex justify-center italic mt-3">By clicking SHORTEN, you are agreeing to Ubit's Terms of Service and Privacy Policy</p>
+        </div>
       </div>
     </div>
   </div>
