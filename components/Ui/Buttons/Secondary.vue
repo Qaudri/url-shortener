@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="font-medium text-lg text-black py-0.5 border-b-2 border-transparent hover:border-primary-100 hover:text-primary-100">
+    <button class="duration-500 ease-in-out font-medium text-black py-0.5 border-b-2 border-transparent hover:border-primary-100 hover:text-primary-100">
       {{button_title}}
     </button>
   </div>

@@ -35,12 +35,10 @@
 
       <UiAuthenticationsError v-if="non_existent" />
 
-      <button type="submit" class="bg-opacity-5 mt-10 text-xl text-black font-medium py-3 flex justify-center bg-primary-100 rounded-xl w-full">
-        Login 
-      </button>
+      <UiButtonsTertiary button_text="Login" class="bg-opacity-5 mt-10 text-xl text-black font-medium py-3 flex justify-center bg-primary-100 w-full" />
 
       <div :class="errors.username && errors.password ? '' : 'bg-opacity-100 text-white'" class="text-gray-400 text-base mt-4 flex justify-center mx-auto">
-        Don't have an account? <span class=""><button class="font-medium hover:text-primary-100 duration-500 ease-in-out ml-2">Sign Up</button></span>
+        Don't have an account? <span class=""><UiButtonsSecondary button_title="Sign Up" class="ml-2 text-sm" /></span>
       </div>
     </form>
   </div>

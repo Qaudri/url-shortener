@@ -1,5 +1,5 @@
 <template>
-  <button class="text-white font-medium bg-primary-100 px-4 rounded-lg py-2">
+  <button class=" text-xl font-medium bg-primary-100 px-4 rounded-lg py-2">
     {{button_text}}
   </button>
 </template>
