@@ -1,7 +1,7 @@
 <template>
   <div class="w-full mx-12 md:w-1/2 lg:w-2/5  border-primary-100 border-2 py-8 px-6 rounded-2xl">
 
-    <form action="" class="block" @submit.prevent="submitForm">
+    <form action="" class="block" @submit.prevent="attemptSignUp">
 
       <label for="username" class="block text-lg text-primary-100 font-medium">Email</label>
       <div class="py-1"></div>
@@ -43,72 +43,48 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
+    ...mapGetters ({
+    sessions : 'authentication/session_token',
+    auth_status: 'authentication/isUnauthenticated'
+  }),
+
   data(){
     return{
-      non_existent: false,
-
-      errors: {
-        username: false,
-        password: false
-      },
-
-      empty: {
-        username: false,
-        password: false
-      },
 
       form: {
         username: '',
         password: '',
       },
 
-      user_from_db: {
-        usernameInput: "Qaudri",
-        passwordInput: "Qaudri1234",
-      },
     }
   },
 
   methods: {
-    // validateInput(){
-    //   if (this.form.username == '') {
-    //     this.empty.username = true
+        ...mapActions({
+      tryRegistration : 'authentication/tryRegistration',
 
-    //     if (this.form.password == '') {
-    //       this.empty.password = true
-    //     } else {
-    //       this.empty.password = false
-    //     }
-    //   } else {
-    //     this.empty.username = false
-    //   }
-    // },
+    }),
 
-    // noAccount(){
-    //   if (this.form.username =! this.user_from_db.usernameInput) {
-    //     if (this.form.password =! this.user_from_db.usernameInput) {
-    //       this.non_existent = true
-    //     }
-    //   }
-    // },
+    attemptSignUp(){
+      this.tryRegistration({
+        email: this.form.email,
+        password: this.form.password
+      })
 
-    submitForm(){
-      // this.validateInput()
-      // if (this.form.username == this.user_from_db.usernameInput) {
+      .then(() =>{
+        this.$router.push({name: 'dashboard'})
+      })
 
-      //   if (this.form.password == this.user_from_db.passwordInput) {
-      //     this.$router.push("/dashboard")
-      //   } else {
-      //     this.errors.password = true
-      //   }
+      .catch( error => {
+        this.$toast.error(error.response.data.errors[Object.keys(error.response.data.errors)[0]][0], {
+          duration: 4000,
+        });
 
-      // } else {
-      //   this.errors.username = true
-      // }
-
-      this.$router.push("/verify")
-
+        this.form.password = '';
+      })
     }
   }
 }
