@@ -2,7 +2,7 @@
   <div class="relative container mx-auto">
     <SectionsCommonHeader class="absolute top-0 w-full" />
     <div class="flex h-screen justify-center items-center">
-      <UiFormLogin />
+      <UiFormSignup />
     </div>
   </div>
 </template>
