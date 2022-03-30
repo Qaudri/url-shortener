@@ -15,11 +15,11 @@
 
       <label for="password" class="block text-lg text-primary-100 font-medium">Password</label>
       <div class="py-1"></div>
-      <input type="password" v-model="form.password" placeholder="Enter your password" 
+      <input type="password" v-model="form.password" placeholder="Choose a password" 
       class="block w-full py-2 px-4 rounded-lg bg-primary-100 bg-opacity-5 focus:border-primary-100">
 
-      <UiAuthenticationsInputErrorPassword v-if="errors.password" />
-      <UiAuthenticationsEmptyPassword v-if="empty.password" />
+      <!-- <UiAuthenticationsInputErrorPassword v-if="errors.password" />
+      <UiAuthenticationsEmptyPassword v-if="empty.password" /> -->
 
       <div class="py-1"></div>
 
@@ -28,17 +28,15 @@
           <input type="checkbox" name="toggle" id="toggle" class="mr-3">
           <label for="toggle" class="text-sm text-gray-400 select-none">Remember Me</label>
         </div>
-        <p  class="text-sm text-gray-400 select-none">
-          Forgot password?
-        </p>
+
       </div>
 
-      <UiAuthenticationsError v-if="non_existent" />
+      <!-- <UiAuthenticationsError v-if="non_existent" /> -->
 
       <UiButtonsTertiary button_text="Login" class="bg-opacity-5 mt-10 text-xl text-black font-medium py-3 flex justify-center bg-primary-100 w-full" />
 
       <div :class="errors.username && errors.password ? '' : 'bg-opacity-100 text-white'" class="text-gray-400 text-base mt-4 flex justify-center mx-auto">
-        Don't have an account? <span class=""><UiButtonsSecondary button_title="Sign Up" class="ml-2 text-sm" /></span>
+        Already have an account? <span class=""><UiButtonsSecondary button_title="Login" class="ml-2 text-sm" /></span>
       </div>
     </form>
   </div>
