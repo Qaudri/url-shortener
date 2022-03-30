@@ -36,7 +36,7 @@ export const actions = {
 
   tryRegistration(context, credentials) {
     return new Promise((resolve, reject) => {
-      this.$axios.$post('/api/user/auth/login', {
+      this.$axios.$post('/api/user/auth/register', {
         email: credentials.email,
         username: credentials.username,
         password: credentials.password
