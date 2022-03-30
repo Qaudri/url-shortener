@@ -23,8 +23,6 @@
       <input type="password" v-model="form.password" placeholder="Choose a password" 
       class="block w-full py-2 px-4 rounded-lg bg-primary-100 bg-opacity-5 focus:border-primary-100">
 
-
-
       <div class="py-1"></div>
 
       <div class="flex justify-between items-center">
