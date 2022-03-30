@@ -45,70 +45,85 @@
 </template>
 
 <script>
+
+import { mapGetters, mapActions } from "authentication";
 export default {
   data(){
     return{
-      non_existent: false,
+      // non_existent: false,
 
-      errors: {
-        username: false,
-        password: false
-      },
+      // errors: {
+      //   username: false,
+      //   password: false
+      // },
 
-      empty: {
-        username: false,
-        password: false
-      },
+      // empty: {
+      //   username: false,
+      //   password: false
+      // },
 
       form: {
         username: '',
         password: '',
       },
 
-      user_from_db: {
-        usernameInput: "Qaudri",
-        passwordInput: "Qaudri1234",
-      },
+      // user_from_db: {
+      //   usernameInput: "Qaudri",
+      //   passwordInput: "Qaudri1234",
+      // },
     }
   },
 
+  ...mapGetters ({
+    sessions : 'authentication/session_token',
+    auth_status: 'authentication/isUnauthenticated'
+  }),
+
   methods: {
-    validateInput(){
-      if (this.form.username == '') {
-        this.empty.username = true
 
-        if (this.form.password == '') {
-          this.empty.password = true
-        } else {
-          this.empty.password = false
-        }
-      } else {
-        this.empty.username = false
-      }
-    },
+    ...mapActions({
+      login : 'authentication/tryLogin'
+    })
+    // validateInput(){
+    //   if (this.form.username == '') {
+    //     this.empty.username = true
 
-    noAccount(){
-      if (this.form.username =! this.user_from_db.usernameInput) {
-        if (this.form.password =! this.user_from_db.usernameInput) {
-          this.non_existent = true
-        }
-      }
-    },
+    //     if (this.form.password == '') {
+    //       this.empty.password = true
+    //     } else {
+    //       this.empty.password = false
+    //     }
+    //   } else {
+    //     this.empty.username = false
+    //   }
+    // },
+
+    // noAccount(){
+    //   if (this.form.username =! this.user_from_db.usernameInput) {
+    //     if (this.form.password =! this.user_from_db.usernameInput) {
+    //       this.non_existent = true
+    //     }
+    //   }
+    // },
 
     submitLogin(){
-      this.validateInput()
-      if (this.form.username == this.user_from_db.usernameInput) {
+    //   this.validateInput()
+    //   if (this.form.username == this.user_from_db.usernameInput) {
 
-        if (this.form.password == this.user_from_db.passwordInput) {
-          this.$router.push("/dashboard")
-        } else {
-          this.errors.password = true
-        }
+    //     if (this.form.password == this.user_from_db.passwordInput) {
+    //       this.$router.push("/dashboard")
+    //     } else {
+    //       this.errors.password = true
+    //     }
 
-      } else {
-        this.errors.username = true
-      }
+    //   } else {
+    //     this.errors.username = true
+    //   }
+        this.$router.push("/dashboard")
+
     }
+
+
   }
 }
 </script>

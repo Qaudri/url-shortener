@@ -6,7 +6,7 @@ export const state = () => ({
 
 export const getters = {
   session(state) {
-    return state.session != null 
+    return state.session_token != null 
   },
 
   isUnauthenticated(state){
