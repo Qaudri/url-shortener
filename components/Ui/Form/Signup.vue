@@ -3,13 +3,13 @@
 
     <form action="" class="block" @submit.prevent="submitLogin">
 
-      <label for="username" class="block text-lg text-primary-100 font-medium">Username</label>
+      <label for="username" class="block text-lg text-primary-100 font-medium">Email</label>
       <div class="py-1"></div>
-      <input type="text" v-model="form.username" placeholder="Choose a Username" 
+      <input type="email" v-model="form.username" placeholder="Enter your email" 
       class="block w-full py-2 px-4 rounded-lg bg-primary-100 bg-opacity-5 focus:border-primary-100">
 
-      <UiAuthenticationsInputErrorUsername v-if="errors.username" />
-      <UiAuthenticationsEmptyUsername v-if="empty.username" />
+      <!-- <UiAuthenticationsInputErrorUsername v-if="errors.username" />
+      <UiAuthenticationsEmptyUsername v-if="empty.username" /> -->
 
       <div class="py-2"></div>
 
