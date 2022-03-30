@@ -1,7 +1,7 @@
 <template>
   <div class="w-full mx-12 md:w-1/2 lg:w-2/5  border-primary-100 border-2 py-8 px-6 rounded-2xl">
 
-    <form action="" class="block" @submit.prevent="submitLogin">
+    <form action="" class="block" @submit.prevent="submitForm">
 
       <label for="username" class="block text-lg text-primary-100 font-medium">Email</label>
       <div class="py-1"></div>
@@ -33,7 +33,7 @@
 
       <!-- <UiAuthenticationsError v-if="non_existent" /> -->
 
-      <UiButtonsTertiary button_text="Login" class="bg-opacity-5 mt-10 text-xl text-black font-medium py-3 flex justify-center bg-primary-100 w-full" />
+      <UiButtonsTertiary button_text="Sign Up" class="bg-opacity-5 mt-10 text-xl text-black font-medium py-3 flex justify-center bg-primary-100 w-full" />
 
       <div :class="errors.username && errors.password ? '' : 'bg-opacity-100 text-white'" class="text-gray-400 text-base mt-4 flex justify-center mx-auto">
         Already have an account? <span class=""><UiButtonsSecondary button_title="Login" class="ml-2 text-sm" /></span>
@@ -71,41 +71,44 @@ export default {
   },
 
   methods: {
-    validateInput(){
-      if (this.form.username == '') {
-        this.empty.username = true
+    // validateInput(){
+    //   if (this.form.username == '') {
+    //     this.empty.username = true
 
-        if (this.form.password == '') {
-          this.empty.password = true
-        } else {
-          this.empty.password = false
-        }
-      } else {
-        this.empty.username = false
-      }
-    },
+    //     if (this.form.password == '') {
+    //       this.empty.password = true
+    //     } else {
+    //       this.empty.password = false
+    //     }
+    //   } else {
+    //     this.empty.username = false
+    //   }
+    // },
 
-    noAccount(){
-      if (this.form.username =! this.user_from_db.usernameInput) {
-        if (this.form.password =! this.user_from_db.usernameInput) {
-          this.non_existent = true
-        }
-      }
-    },
+    // noAccount(){
+    //   if (this.form.username =! this.user_from_db.usernameInput) {
+    //     if (this.form.password =! this.user_from_db.usernameInput) {
+    //       this.non_existent = true
+    //     }
+    //   }
+    // },
 
-    submitLogin(){
-      this.validateInput()
-      if (this.form.username == this.user_from_db.usernameInput) {
+    submitForm(){
+      // this.validateInput()
+      // if (this.form.username == this.user_from_db.usernameInput) {
 
-        if (this.form.password == this.user_from_db.passwordInput) {
-          this.$router.push("/dashboard")
-        } else {
-          this.errors.password = true
-        }
+      //   if (this.form.password == this.user_from_db.passwordInput) {
+      //     this.$router.push("/dashboard")
+      //   } else {
+      //     this.errors.password = true
+      //   }
 
-      } else {
-        this.errors.username = true
-      }
+      // } else {
+      //   this.errors.username = true
+      // }
+
+      this.$router.push("/verify")
+
     }
   }
 }
