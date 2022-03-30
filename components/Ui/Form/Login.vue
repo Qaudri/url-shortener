@@ -46,7 +46,7 @@
 
 <script>
 
-import { mapGetters, mapActions } from "authentication";
+import { mapGetters, mapActions } from "vuex";
 export default {
   data(){
     return{
@@ -82,8 +82,28 @@ export default {
   methods: {
 
     ...mapActions({
-      login : 'authentication/tryLogin'
-    })
+      tryLogin : 'authentication/tryLogin',
+
+    }),
+
+    attemptLogin(){
+      this.tryLogin({
+        email: this.form.email,
+        password: this.form.password
+      })
+
+      .then(() =>{
+        this.$router.push({name: 'dashboard'})
+      })
+
+      .catch( error => {
+        this.$toast.error(error.response.data.errors[Object.keys(error.response.data.errors)[0]][0], {
+          duration: 4000,
+        });
+
+        this.form.password = '';
+      })
+    }
     // validateInput(){
     //   if (this.form.username == '') {
     //     this.empty.username = true
@@ -106,7 +126,7 @@ export default {
     //   }
     // },
 
-    submitLogin(){
+    // submitLogin(){
     //   this.validateInput()
     //   if (this.form.username == this.user_from_db.usernameInput) {
 
@@ -119,9 +139,7 @@ export default {
     //   } else {
     //     this.errors.username = true
     //   }
-        this.$router.push("/dashboard")
-
-    }
+    // }
 
 
   }
