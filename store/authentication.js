@@ -80,6 +80,22 @@ export const actions = {
         })
     })
   },
+
+  resendVerificationCode(context) {
+    return new Promise((resolve, reject) => {
+      this.$axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.session_token
+
+      this.$axios.$get('/api/user/auth/email/resend_verification_code')
+        .then(response => {
+
+          resolve(response)
+        })
+
+        .catch(function (error) {
+          reject(error)
+        })
+    })
+  },
 }
 
 export const mutations = {
