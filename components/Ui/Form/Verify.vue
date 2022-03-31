@@ -5,7 +5,7 @@
 
       <label for="username" class="block text-lg text-primary-100 font-medium">Verify your email</label>
       <div class="py-1"></div>
-      <input v-model="verification_code" placeholder="Enter the 6 digit verification code" 
+      <input v-model="verification_code" type="pin" placeholder="Enter the 6 digit verification code" 
       class="block w-full py-2 px-4 rounded-lg bg-primary-100 bg-opacity-5 focus:border-primary-100">
 
       <UiButtonsTertiary button_text="Verify Email" class="bg-opacity-5 mt-10 text-xl text-black font-medium py-3 flex justify-center bg-primary-100 w-full" />
