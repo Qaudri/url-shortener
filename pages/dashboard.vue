@@ -94,7 +94,7 @@
 import { mapActions, mapGetters} from 'vuex';
 
 export default {
-  middleware: 'session',
+  middleware: ['session', 'email_verificattion'],
 
   methods: {
     ...mapActions({
