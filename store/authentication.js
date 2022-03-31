@@ -70,7 +70,7 @@ export const actions = {
           context.commit('SET_USER_INFO', response.data)
 
           if (response.data.email_verified === false) {
-            this.app.router.push('verify_email')
+            this.app.router.push('verify')
           }
           resolve(response)
         })
@@ -96,6 +96,23 @@ export const actions = {
         })
     })
   },
+
+  verifyEmail(context, verification_code) {
+    return new Promise((resolve, reject) => {
+
+      this.$axios.$post('/api/user/auth/email/verify', {
+        verification_code: verification_code
+      })
+        .then(response => {
+
+          resolve(response)
+        })
+
+        .catch(function (error) {
+          reject(error)
+        })
+    })
+  }, 
 }
 
 export const mutations = {
