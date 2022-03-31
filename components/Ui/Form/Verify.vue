@@ -10,6 +10,7 @@
 
       <UiButtonsTertiary button_text="Verify Email" class="bg-opacity-5 mt-10 text-xl text-black font-medium py-3 flex justify-center bg-primary-100 w-full" />
 
+      <p>Didn't receive a code? <a @click="sendNewCode" href="">Resend</a></p>
     </form>
     
   </div>
@@ -18,8 +19,30 @@
 </template>
 
 <script>
-export default {
 
+import { mapActions, mapGetters} from 'vuex';
+
+export default {
+  methods: {
+    ...mapActions({
+      resendCode: 'authentication/resendVerificationCode',
+    }),
+
+    sendNewCode(){
+      this.resendCode()
+      .then(() =>{
+        this.$toast.success("New email code has been sent to your email", {
+          duration: 4000,        
+        });
+      })
+
+      .catch( error => {
+        this.$toast.error(error.response.data.errors[Object.keys(error.response.data.errors)[0]][0], {
+          duration: 4000,
+        });
+      })
+    }
+  },
 }
 </script>
 
