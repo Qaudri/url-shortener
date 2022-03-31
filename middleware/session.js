@@ -1,5 +1,5 @@
 export default function({store, redirect }){
-  if (!store.state.session_token){
+  if (!store.getters.session){
     return redirect('login');
   }
 }
