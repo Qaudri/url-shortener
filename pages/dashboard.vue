@@ -94,13 +94,13 @@
 import { mapActions, mapGetters} from 'vuex';
 
 export default {
-  middleware: ['session', 'email_verificattion'],
+  middleware: ['session', 'email_verification'],
 
-  methods: {
-    ...mapActions({
-      retriveInfo: 'authentication/retrieveLoggedUserInfo'
-    })
-  }
+  // methods: {
+  //   ...mapActions({
+  //     retriveInfo: 'authentication/retrieveLoggedUserInfo'
+  //   })
+  // }
 }
 </script>
 
