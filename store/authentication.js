@@ -28,8 +28,12 @@ export const actions = {
           context.commit('SET_SESSION_TOKEN', response.data.token)
           context.commit('SET_AUTHENTICATION_STATUS', true)
           localStorage.setItem('ubit_user_session_token', response.data.token)
+
+          context.dispatch('retrieveLoggedUserInfo')
+
           resolve(response)
         })
+
 
         .catch(function (error) {
           reject(error)
@@ -65,7 +69,7 @@ export const actions = {
         .then(response => {
           context.commit('SET_USER_INFO', response.data)
 
-          if (response.data.data.email_verified === false) {
+          if (response.data.email_verified === false) {
             this.app.router.push('verify_email')
           }
           resolve(response)

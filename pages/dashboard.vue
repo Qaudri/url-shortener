@@ -90,8 +90,17 @@
 </template>
 
 <script>
+
+import { mapActions, mapGetters} from 'vuex';
+
 export default {
-  middleware: 'session'
+  middleware: 'session',
+
+  methods: {
+    ...mapActions({
+      retriveInfo: 'authentication/retrieveLoggedUserInfo'
+    })
+  }
 }
 </script>
 
