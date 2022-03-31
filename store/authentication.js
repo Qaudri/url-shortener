@@ -62,6 +62,10 @@ export const actions = {
       this.$axios.$get('/api/user/account')
         .then(response => {
           context.commit('SET_USER_INFO', response.data)
+
+          if (response.data.data.email_verified === false) {
+            this.app.router.push('verify_email')
+          }
           resolve(response)
         })
 
