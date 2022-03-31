@@ -82,6 +82,7 @@ export default {
 
     ...mapActions({
       tryLogin : 'authentication/tryLogin',
+      retrieveLoggedUserInfo: 'authentication/retrieveLoggedUserInfo'
 
     }),
 
@@ -93,6 +94,7 @@ export default {
 
       .then(() =>{
         this.$router.push({name: 'dashboard'})
+        
       })
 
       .catch( error => {
