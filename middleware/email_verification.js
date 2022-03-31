@@ -1,8 +1,10 @@
 export default function({store, redirect }){
 
   store.dispatch(authentication/retrieveLoggedUserInfo)
+  .then(() => {
+    if (store.state.user.email_verified === false){
+      return redirect('verify_email');
+    }
+  })
 
-  // if (!store.state.authentication.session_token){
-  //   return redirect('login');
-  // }
 }
