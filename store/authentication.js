@@ -140,7 +140,7 @@ export const actions = {
     })
   }, 
 
-  retrieveNewURL(context){
+  getShortURL(context){
     return new Promise((resolve, reject) => {
       this.$axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.session_token
 
