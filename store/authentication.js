@@ -119,11 +119,13 @@ export const actions = {
     })
   }, 
 
-  shortenURL(context, url) {
+  shortenURL(context, credentials) {
     return new Promise((resolve, reject) => {
       this.$axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.session_token
       this.$axios.$post('/api/user/urls/', {
-        url: url
+        url: credentials.url,
+        slug: credentials.slug,
+
       })
         .then(response => {
           context.commit('SET_URL', response.data)

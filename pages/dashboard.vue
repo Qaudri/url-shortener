@@ -116,6 +116,24 @@ export default {
       shortenURL : 'authentication/shortenURL', 
     }),
   
+    shortenLink(){
+      this.shortenURL({
+        slug: this.form.slug,
+        link: this.form.link,
+      })
+
+      .then(() =>{
+        this.$router.push({name: 'dashboard'})
+      })
+
+      .catch( error => {
+        this.$toast.error(error.response.data.errors[Object.keys(error.response.data.errors)[0]][0], {
+          duration: 4000,
+        });
+
+        this.form = '';
+      })
+    }
   },
   data(){
     return{
