@@ -15,6 +15,10 @@ export const getters = {
 
   isUnauthenticated(state){
     return state.auth_status
+  },
+
+  getShortenedLink(state){
+    return state.link
   }
 }
 
