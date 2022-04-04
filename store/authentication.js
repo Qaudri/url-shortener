@@ -5,7 +5,7 @@ export const state = () => ({
   user: {
 
   },
-  link: ''
+  generated_link: ''
 })
 
 export const getters = {
@@ -129,6 +129,7 @@ export const actions = {
       })
         .then(response => {
           context.commit('SET_URL', response.data)
+          context.dispatch('getShortURL')
 
           resolve(response)
         })
@@ -138,6 +139,23 @@ export const actions = {
         })
     })
   }, 
+
+  retrieveNewURL(context){
+    return new Promise((resolve, reject) => {
+      this.$axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.session_token
+
+      this.$axios.$get('/api/user/account')
+        .then(response => {
+          context.commit('SET_URL', response.data)
+
+          resolve(response)
+        })
+
+        .catch(function (error) {
+          reject(error)
+        })
+    })
+  }
 }
 
 export const mutations = {
