@@ -5,6 +5,7 @@ export const state = () => ({
   user: {
 
   },
+  link: ''
 })
 
 export const getters = {
@@ -113,6 +114,24 @@ export const actions = {
         })
     })
   }, 
+
+  shortenURL(context, url) {
+    return new Promise((resolve, reject) => {
+
+      this.$axios.$post('/api/user/urls/', {
+        url: url
+      })
+        .then(response => {
+          context.commit('SET_URL', response.data)
+
+          resolve(response)
+        })
+
+        .catch(function (error) {
+          reject(error)
+        })
+    })
+  }, 
 }
 
 export const mutations = {
@@ -126,5 +145,9 @@ export const mutations = {
 
   SET_USER_INFO(state, payload){
     state.user = payload
+  },
+
+  SET_URL(state, payload){
+    state.link = payload
   }
 }
