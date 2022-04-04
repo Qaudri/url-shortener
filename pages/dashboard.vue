@@ -82,7 +82,8 @@
 
             <div class="my-4 w-full flex items-center">
               <label for="slug" class="font-medium text-xl mr-8">Slug</label>
-              <input type="text" class="w-full px-6 py-3 text-lg text-gray-400 rounded-xl border-2 border-primary-100 shadow-lg" placeholder="Choose your slug">
+              <input type="text" v-model="form.slug"
+              class="w-full px-6 py-3 text-lg text-gray-400 rounded-xl border-2 border-primary-100 shadow-lg" placeholder="Choose your slug">
             </div>
 
             <input type="text" v-model="form.link"
@@ -106,6 +107,16 @@ import { mapActions, mapGetters} from 'vuex';
 export default {
   middleware: ['session', 'email_verification'],
 
+  ...mapGetters ({
+    shortenedLink : 'authentication/getShortenedLink',
+  }),
+
+  methods: {
+    ...mapActions({
+      shortenURL : 'authentication/shortenURL', 
+    }),
+  
+  },
   data(){
     return{
       form: {
