@@ -3,7 +3,11 @@ export default function({axios, store, redirect}) {
     if (error.response.status === 401){
       store.dispatch('authentication/destroSession');
       return redirect ('/login')
-    } else if (error.response.status === 500) {
+      
+    } else if (error.response.status === 404) {
+      return redirect ('/')
+
+    } else if (error.response.status === 404) {
       return redirect ('/')
     }
   })
