@@ -121,7 +121,7 @@ export const actions = {
 
   shortenURL(context, url) {
     return new Promise((resolve, reject) => {
-
+      this.$axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.session_token
       this.$axios.$post('/api/user/urls/', {
         url: url
       })

@@ -76,11 +76,21 @@
       </div>
       <div class="w-3/5 flex items-center justify-center mx-auto">
         <div class="w-full">
-          <h1 class="font-bold text-5xl text-primary-100 text-center mx-auto my-6">Shorten your links</h1>
-          <input type="text" class="w-11/12 px-6 py-3 text-lg text-gray-400 rounded-xl border-2 border-primary-100 shadow-lg" placeholder="Input your link">
+          <h1 class="font-bold text-5xl text-primary-100 text-center mx-auto my-8">Shorten your links</h1>
 
-          <UiButtonsTertiary button_text="Shorten" class="uppercase mt-4 flex justify-center mx-auto
+          <form action="" @submit.prevent="shortenLink">
+
+            <div class="my-4 w-full flex items-center">
+              <label for="slug" class="font-medium text-xl mr-8">Slug</label>
+              <input type="text" class="w-full px-6 py-3 text-lg text-gray-400 rounded-xl border-2 border-primary-100 shadow-lg" placeholder="Choose your slug">
+            </div>
+
+            <input type="text" v-model="form.link"
+            class="w-full px-6 py-3 text-lg text-gray-400 rounded-xl border-2 border-primary-100 shadow-lg" placeholder="Input your link">
+            <UiButtonsTertiary button_text="Shorten" class="uppercase mt-4 flex justify-center mx-auto
           py-3 px-14" />
+          </form>
+
 
           <p class=" text-sm text-gray-400 flex justify-center italic mt-3">By clicking SHORTEN, you are agreeing to Ubit's Terms of Service and Privacy Policy</p>
         </div>
@@ -96,6 +106,14 @@ import { mapActions, mapGetters} from 'vuex';
 export default {
   middleware: ['session', 'email_verification'],
 
+  data(){
+    return{
+      form: {
+        slug: '',
+        link: '',
+      }
+    }
+  }
 }
 </script>
 
