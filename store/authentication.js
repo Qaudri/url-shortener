@@ -155,7 +155,16 @@ export const actions = {
           reject(error)
         })
     })
-  }
+  },
+
+  destroySession(context, credentials) {
+    if (context.getter.session) {
+      context.commit('SET_SESSION_TOKEN', null)
+      context.commit('SET_AUTHENTICATION_STATUS', false)
+      localStorage.removeItem('ubit_user_session_token', response.data.token)
+    }
+  
+  },
 }
 
 export const mutations = {
