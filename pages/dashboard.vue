@@ -118,20 +118,18 @@ export default {
   
     shortenLink(){
       this.shortenURL({
-        slug: this.form.slug,
-        link: this.form.link,
-      })
-
-      .then(() =>{
-        this.$router.push({name: 'dashboard'})
+        preferred_slug: this.form.slug,
+        url: this.form.link,
       })
 
       .catch( error => {
-        this.$toast.error(error.response.data.errors[Object.keys(error.response.data.errors)[0]][0], {
+        this.$toast.error("An error has occured", {
           duration: 4000,
         });
 
-        this.form = '';
+        this.form.slug = '';
+        this.form.link = '';
+
       })
     }
   },
